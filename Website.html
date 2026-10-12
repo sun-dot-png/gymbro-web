@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-body-dark text-light min-vh-100 d-flex flex-column justify-content-between">
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4"> 
+            <div>
+                <span class="text-secondary display-5 header"><strong>Gym</strong></span><span class="text-lime display-5 header"><strong>Bro</strong></span>
+            </div>
+            
+            <button id="theme-toggle" class="btn btn-outline-lime rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Toggle Theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
+
+        <div class="card glass-card text-white border-secondary shadow mb-4">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5">
+                    <img src="./assets/Gym.jpg" class="img-fluid rounded-start w-100 object-fit-cover" style="max-height: 300px;" alt="Gym">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body p-4">
+                        <h2 class="text-lime h1 mb-3">Sup! I'm Your Gym Bro 💪🏻</h2>
+                        <div class="normal-text">
+                            <p class="card-text fs-5">Sup I'm your GymBro feel free to ask your question. Welcome to the club !</p>
+                        </div>
+                        <a href="about-me.html" class="btn btn-outline-lime btn-lg mt-3 shadow-sm px-4">About me ?</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-bg text-center my-4 py-2">
+            <p class="fs-4 fw-light text-light m-0">What would you like to know buddy ?</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="card h-100 glass-card text-white border-secondary shadow text-center p-3 card-hover-effect">
+                    <img src="./assets/Weight.jpg" width="100" height="100" class="mx-auto my-3 rounded-circle object-fit-cover" alt="Weight Training">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <span class="header text-lime h4 mb-3 d-block"><strong>Weight Training 💪🏻</strong></span>
+                        <a href="weight.html" class="btn btn-lime w-100 shadow-sm mt-auto">I would like to know this one</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card h-100 glass-card text-white border-secondary shadow text-center p-3 card-hover-effect">
+                    <img src="./assets/cardio.jpg" width="100" height="100" class="mx-auto my-3 rounded-circle object-fit-cover" alt="Cardio">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <span class="header text-lime h4 mb-3 d-block"><strong>Cardio 👟</strong></span>
+                        <a href="cardio.html" class="btn btn-lime w-100 shadow-sm mt-auto">I would like to know this one</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card h-100 glass-card text-white border-secondary shadow text-center p-3 card-hover-effect">
+                    <img src="./assets/Food.jpg" width="100" height="100" class="mx-auto my-3 rounded-circle object-fit-cover" alt="Food">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <span class="header text-lime h4 mb-3 d-block"><strong>Food 🍽️</strong></span>
+                        <a href="food.html" class="btn btn-lime w-100 shadow-sm mt-auto">I would like to know this one</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="about-me-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card text-white border-secondary">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title text-lime">About me 💪🏻</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ey! you would be a new face here. No worry I won't bully you, because I was like you before in the past. Anyway I'm glad that you decide to stat. Welcome to the club GOAT.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="weight-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card text-white border-secondary">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title text-lime">Weight Training Info 💪🏻</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Weight training are activities have drag movement, also it is the activity to destroy muscles and recovery, after recovery they will getting bigger and stronger.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cardio-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card text-white border-secondary">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title text-lime">Cardio Info 👟</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Cardios are activities for practicing your heart and your lung, also they can help you for weight training too by control your breathing and can make you lift more rep.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="food-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card text-white border-secondary">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title text-lime">Food Info 🍽️</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Food is very important thihng because they are things that going to fix your muscle after you destroy it by weight training and cardio, perhaps if you not control what you eat, weight training and cardio will be useless.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBro - Cardio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-body-dark text-light min-vh-100 d-flex flex-column justify-content-between">
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4"> 
+            <div>
+                <a href="Website.html" class="text-decoration-none">
+                    <span class="text-secondary display-5 header"><strong>Gym</strong></span><span class="text-lime display-5 header"><strong>Bro</strong></span>
+                </a>
+            </div>
+
+            <button id="theme-toggle" class="btn btn-outline-lime rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Toggle Theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
+
+        <div class="card glass-card text-white border-secondary shadow p-4 mb-4">
+            <h1 class="text-lime mb-3">Cardio Info 👟</h1>
+            <p class="fs-5">Cardios are activities for practicing your heart and your lung, also they can help you for weight training too by control your breathing and can make you lift more rep.</p>
+        </div>
+
+        <div class="card glass-card text-white border-secondary shadow p-4 mb-4">
+            <h1 class="text-lime mb-3">Heart Rate Zone ❤️‍🔥</h1>
+            <p class="fs-5">A range of heartbeats per minute (bpm) that measures how hard your heart is working during physical exercise, typically calculated as a percentage of your maximum heart rate (Max HR).</p>
+            <p class="fs-5"><strong class="text-lime me-2">Simple Formula:</strong>220 - Your age</p>
+            <p class="fs-5">Heart rate training is generally split into five progressive levels:</p>
+            <p class="fs-5"><strong class="text-lime">Zone 1 (50% – 60% of Max HR)</strong> - Very Light / Warm-Up: Used for warming up, active recovery, and improving basic blood circulation.</p>
+            <p class="fs-5"><strong class="text-lime">Zone 2 (60% – 70% of Max HR)</strong> - Light / Endurance & Fat-Burning: Builds aerobic endurance and efficiently utilizes fat as a primary fuel source.</p>
+            <p class="fs-5"><strong class="text-lime">Zone 3 (70% – 80% of Max HR)</strong> - Moderate / Aerobic: Improves overall cardiovascular fitness, lung strength, and muscle conditioning.</p>
+            <p class="fs-5"><strong class="text-lime">Zone 4 (80% – 90% of Max HR)</strong> - Hard / Threshold & Speed: Increases anaerobic threshold, speed endurance, and carbohydrate metabolism.</p>
+            <p class="fs-5"><strong class="text-lime">Zone 5 (90% – 100% of Max HR)</strong> - Maximum / Peak Capacity: Reaches maximum exertion for short, high-intensity intervals meant for well-trained athletes.</p>
+        </div>
+
+        <h3 class="text-lime mb-3">Cardio Activities 🏃‍♂️</h3>
+        <div class="row g-4 mb-4">
+            
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/running.jpg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 1">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Running / Treadmill</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/bike.jpg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 2">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Cycling</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/jump.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 3">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Rope Jumping</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/swim.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 3">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Swiming</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/aerobic.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 3">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Aerobic</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow overflow-hidden h-100">
+                    <img src="./assets/rope.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Cardio Activity 3">
+                    <div class="card-body text-center p-2">
+                        <small class="text-light">Battle Rope</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin: 10px 0;">
+        <h3 class="text-lime mb-3">
+            Find your heart rate ❤️‍🔥
+        </h3>
+        <p class="text-lime" style="margin: 10px 0" ;>
+            Enter your age
+        </p>
+        <input type="number" placeholder="Age(Number)" id="age">
+        <p class="text-lime" style="margin: 10px 0" ;>
+            Select Zone 🔥
+        </p>
+        <select name="Zone" id="zone">
+            <option value="zone1">Zone1</option>
+            <option value="zone2">Zone2</option>
+            <option value="zone3">Zone3</option>
+            <option value="zone4">Zone4</option>
+            <option value="zone5">Zone5</option>
+        </select>
+        </div>
+        <button style="display: flex; flex: row; margin: 15px 0;" class="btn btn-outline-lime px-4" id="heartcalculatebtn">Calculate</button>
+        <div style="margin: 20px 0;">
+        <h3 class="text-lime">Your heart rate each zone:</h3>
+        <div class="heart-box" id="result">
+            0.0
+        </div>
+        </div>
+        
+
+        <div class="mb-4">
+            <a href="Website.html" class="btn btn-outline-lime px-4">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/heart.js"></script>
+</body>
+</html>

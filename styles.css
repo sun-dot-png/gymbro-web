@@ -1,0 +1,121 @@
+:root {
+  --bg-dark: #121417;
+  --color-lime: #B5FF4E;
+}
+
+body.bg-body-dark {
+  background-color: var(--bg-dark);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.text-lime {
+  color: var(--color-lime) !important;
+}
+
+.btn-lime {
+  background-color: var(--color-lime);
+  color: #121417;
+  border: none;
+}
+
+.btn-lime:hover {
+  background-color: #9ee63c;
+  color: #121417;
+}
+
+.btn-outline-lime {
+  border: 1px solid var(--color-lime);
+  color: var(--color-lime);
+  background: transparent;
+}
+
+.btn-outline-lime:hover {
+  background-color: var(--color-lime);
+  color: #121417;
+}
+
+.hero-height {
+  height: 480px;
+}
+
+.filter-dark {
+  filter: brightness(0.4) contrast(1.1);
+}
+
+.glass-card {
+  background: rgba(18, 20, 23, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.shadow-neon {
+  box-shadow: 0 0 15px rgba(181, 255, 78, 0.4);
+}
+
+.card-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(181, 255, 78, 0.15);
+  border-color: rgba(181, 255, 78, 0.4) !important;
+}
+
+.bmi-box{
+  width: 100px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: large;
+}
+
+.heart-box{
+  width: 100px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: large;
+}
+
+body.light-mode {
+  background-color: #F4F6F8 !important;
+  color: #121417 !important;
+}
+
+body.light-mode .text-light {
+  color: #121417 !important;
+}
+
+body.light-mode .glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  color: #121417 !important;
+  border-color: #DEE2E6 !important;
+}
+
+body.light-mode .text-lime {
+  color: #2E7D32 !important;
+}
+
+body.light-mode .btn-lime {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+}
+
+body.light-mode .btn-lime:hover {
+  background-color: #1B5E20;
+  color: #FFFFFF;
+}
+
+body.light-mode .btn-outline-lime {
+  border-color: #2E7D32;
+  color: #2E7D32;
+}
+
+body.light-mode .btn-outline-lime:hover {
+  background-color: #2E7D32;
+  color: #FFFFFF;
+}
+
+body.light-mode .btn-close-white {
+  filter: none;
+}
+

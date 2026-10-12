@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBro - Food & Nutrition</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-body-dark text-light min-vh-100 d-flex flex-column justify-content-between">
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4"> 
+            <div>
+                <a href="Website.html" class="text-decoration-none">
+                    <span class="text-secondary display-5 header"><strong>Gym</strong></span><span class="text-lime display-5 header"><strong>Bro</strong></span>
+                </a>
+            </div>
+
+            <button id="theme-toggle" class="btn btn-outline-lime rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Toggle Theme">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
+
+        <div class="card glass-card text-white border-secondary shadow p-4 mb-4">
+            <h1 class="text-lime mb-3">Food & Nutrition Info 🥑</h1>
+            <p class="fs-5">Nutrition is the foundation of fitness. Understanding your nutrients, body mass index, and daily energy expenditure will help you reach your goals faster whether bulking or cutting.</p>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow h-100 d-flex flex-column">
+                    <img src="./assets/food.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Macronutrients">
+                    <div class="card-body d-flex flex-column p-3">
+                        <h4 class="text-lime">1. Food</h4>
+                        <p class="card-text fs-6 text-light flex-grow-1">
+                            Food is somethings you eat everryday, but mostly they just it until day full. Anyway calories is very important if you eat more than your body need you will get fat. On the other hand if you eat less than your body need you will get skinny.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow h-100 d-flex flex-column">
+                    <img src="./assets/Bmi.jpeg" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Body Mass Index">
+                    <div class="card-body d-flex flex-column p-3">
+                        <h4 class="text-lime">2. BMI (Body Mass Index)</h4>
+                        <p class="card-text fs-6 text-light flex-grow-1">
+                           BMI stands for body mass index, a simple tool that uses your height and weight to estimate your body fat. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card glass-card border-secondary shadow h-100 d-flex flex-column">
+                    <img src="./assets/tdee.jpg" class="img-fluid w-100 object-fit-cover" style="height: 200px;" alt="Total Daily Energy Expenditure">
+                    <div class="card-body d-flex flex-column p-3">
+                        <h4 class="text-lime">3. TDEE (Energy Expenditure)</h4>
+                        <p class="card-text fs-6 text-light flex-grow-1">
+                        Tdee is Activity + your BMR, your BMR = 2000 that mean if you just layout on the bed do nothing on that day, your body burn 2000 caloriees. But Tdee add activity, for example if your tdee is 2500 that is the number your body can burn with your activities on that day. Another tips is if you want to get more skinny I recommand you to eat less than your tdee around 250 - 500. Anyway if you want to get bigger, I recomand you too eat more than your tdee 250-500.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-md-4">
+        <h3 class="text-lime">Don't know your BMI ?</h3>
+        <p style="margin: 10px 0;">Enter your weight</p>
+        <input type="number" id="weight" placeholder="Weight(KG)">
+        <br>
+        <p style="margin: 10px 0;">Enter your height</p>
+        <input type="number" id="height" placeholder="Height(Meters)">
+        <button style="display: flex; flex: row; margin: 15px 0;" class="btn btn-outline-lime px-4" id="calculatebtn">Calculate</button>
+        <h3 class="text-lime">Your BMI :</h3>
+        <div class="bmi-box" id="result" >0.0</div>
+        </div>
+        
+        <div style="margin: 5px 0;">
+        <h3 class="text-lime">See your result</h3>
+        <div class="text-lime"><strong>Less than 18.5</strong> = Too slim (Malnutrition)</div>
+        <div class="text-lime"><strong>18.5 - 22.9</strong> = You cool bro 😎 (Healthy)</div>
+        <div class="text-lime"><strong>23.0 - 24.9</strong> = Overweight</div>
+        <div class="text-lime"><strong>25.0 - 29.9</strong>= Obesity Class 1</div>
+        <div class="text-lime"><strong>More than or equal 30.0</strong> = Obesity Class 2 <strong style="color: red;">(Red Zone / Danger)<strong></div>
+            </div>
+        
+        <div class="mb-4">
+            <a href="Website.html" class="btn btn-outline-lime px-4">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/calculate.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
