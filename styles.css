@@ -76,6 +76,27 @@ body.bg-body-dark {
   font-size: large;
 }
 
+.text-orange-normal {
+  color: #FF6B00;
+}
+
+.text-orange {
+  color: #FF6B00;
+}
+.text-orange:hover {
+  color: #FF8533;
+  text-decoration: underline;
+}
+
+body.light-mode .text-orange {
+  color: #E56024;
+}
+
+body.light-mode .text-orange:hover {
+  color: #C63D00;
+  text-decoration: underline;
+}
+
 body.light-mode {
   background-color: #F4F6F8 !important;
   color: #121417 !important;

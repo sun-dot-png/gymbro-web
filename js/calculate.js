@@ -1,6 +1,6 @@
 const weight = document.getElementById('weight')
 const height = document.getElementById('height')
-const calculate = document.getElementById('calculatebtn')
+const calculatebtn = document.getElementById('calculatebtn')
 const result = document.getElementById('result')
 
 calculatebtn.addEventListener('click', function(){
