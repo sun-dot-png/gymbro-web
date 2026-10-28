@@ -7,6 +7,15 @@ calculatebtn.addEventListener('click', function(){
     let answer = weight.value / (height.value * height.value);
     let bmi = answer.toFixed(1);
     result.innerText = bmi;
+
+    let bmiHistory = JSON.parse(localStorage.getItem('bmiHistory')) || [];
+    const record= {
+        bmi :bmi,
+        date :new Date().toLocaleString('th-TH')
+    };
+
+    bmiHistory.push(record);
+    localStorage.setItem('bmiHistory', JSON.stringify(bmiHistory));
 });
 
 weight.addEventListener('input', function(){
