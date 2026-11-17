@@ -28,7 +28,7 @@ app.use(
     }
   })
 );
-
+app.set('trust proxy', 1)
 
 const pool = mysql2.createPool({
   host: process.env.DB_HOST || "localhost",
@@ -43,6 +43,46 @@ const pool = mysql2.createPool({
 });
 
 const db = pool.promise()
+
+pool.on('connection', (conn) => conn.query("SET time_zone = '+7:00'"))
+async function trackVisior(ip) {
+    const now = new Date().toLocaleString('sv-SE', {timeZone: 'Asia/Bangkok'})
+    const today = now.slice(0,10)   
+
+    await db.query(
+        `INSERT INTO visitors (ip_address, visit_date, first_visit, last_visit)
+     VALUES (?, ?, ?, ?)
+     ON DUPLICATE KEY UPDATE last_visit = VALUES(last_visit)`,
+     [ip, today, now, now]
+    )
+}
+
+async function getTodayCount(){
+    const today = new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Bangkok'})
+    const [rows] = await db.query(
+        'SELECT COUNT(*) AS c FROM visitors WHERE visit_date = ?', [today]
+    )
+    return rows[0].c
+}
+
+async function  getTotalCount() {
+    const [rows] = await db.query('SELECT COUNT(*) AS c FROM visitors')
+    return rows[0].c
+}
+
+app.get('/', async (req, res) => {
+    try{
+        await trackVisior(req.ip)
+        const [today, total] = await Promise.all([getTodayCount(), getTotalCount()])
+        res.send(`
+            <h1>Home</h1>
+            <p>Today Visit: ${today}</p>
+            <p>Total visit: ${total}</p>`)
+    } catch (err){
+        console.error(err);
+        res.status(500).send('Internal Server Error')
+    }
+})
 
 pool.getConnection((err, connection) => {
     if(err){
