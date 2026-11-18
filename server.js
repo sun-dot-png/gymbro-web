@@ -6,6 +6,32 @@ const session = require("express-session");
 const cors = require("cors")
 const path = require("path")
 const bcrypt = require("bcrypt")
+const crypto = require("crypto")
+const nodemailer = require("nodemailer")
+
+const mailer = process.env.SMTP_HOST
+? nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: false,
+    auth: {user: process.env.SMTP_USER, pass: process.env.SMTP_PASS}
+})
+: null;
+
+async function sendResetEmail(to, link) {
+    if(!mailer){
+        console.log("[DEV] Password reset link:", link)
+        return;
+    }
+    await mailer.sendMail({
+        from: process.env.MAIL_FROM || process.env.SMTP_USER,
+        to,
+        subject: "Reset your GymBro password",
+        text: `Click the link below to reset your password (valid for 30 minutes):\n${link}\n\nIf you did not request this, you can ignore this email.`
+    })
+}
+const sha256 = (s) => crypto.createHash("sha256").update(s).digest("hex");
+
 const requireAuth = (req, res, next) =>
     req.session?.user ? next() : res.status(401).json({
         success: false,
@@ -433,6 +459,91 @@ app.put("/api/profile/goal", requireAuth, async (req, res) => {
         console.error(err)
         res.status(500).json({ success: false, 
             message: "Internal Server Error"})
+    }
+})
+
+//Forgot Password
+app.post("/forgot-password", async(req, res) => {
+    const email = (req.body.email || "").trim().toLowerCase()
+    if (!/^\S+@\S+\.\S+$/.test(email)){
+        return res.status(400).json({
+            success: false,
+            message: "Invalid email format"
+        })
+    }
+    try{
+        const [users] = await db.query("SELECT id FROM users WHERE email = ?", [email])
+        if (users.length > 0){
+            const token = crypto.randomBytes(32).toString("hex")
+            await db.query("DELETE FROM password_resets WHERE user_id = ?", [users[0].id])
+            await db.query(
+                "INSERT INTO password_resets (user_id, token_hash, expires_at) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 30 MINUTE))",
+                [users[0].id, sha256(token)]
+            )
+            const base = process.env.APP_URL || `http://localhost:${process.env.PORT || 3000}`
+            try{
+                await sendResetEmail(email, `${base}/login.html?token=${token}`)
+            } catch(mailErr){
+                console.error("Mail error", mailErr)
+            }
+        }
+        res.json({
+            success: true,
+            message:  "If that email is registered, a reset link has been sent"
+        })
+    } catch(err){
+        console.error(err)
+         res.status(500).json({ success: false, 
+            message: "Internal Server Error"
+        })
+    }
+})
+
+//Reset Password
+app.post("/reset-password", async (req, res) => {
+    const {token, newPassword, confirmPassword} = req.body
+    if(!token || !newPassword || !confirmPassword){
+        return res.status(400).json({
+            success: false,
+            message: "Fill in all fields"
+        })
+    }
+    if(newPassword !== confirmPassword){
+        return res.status(400).json({
+            success: false,
+            message: "Passwords do not match"
+        })
+    }
+    if(newPassword.length < 8){
+        return res.status(400).json({
+            success: false,
+            message: "Password must be at least 8 characters"
+        })
+    }
+    try{
+        const [rows] = await db.query(
+            "SELECT user_id FROM password_resets WHERE token_hash = ? AND expires_at > NOW()",
+            [sha256(String(token))]
+        )
+        if (rows.length === 0){
+            return res.json(400).json({
+            success: false,
+            message: "Reset link is invalid or has expired"
+        })
+        }
+        const userId = rows[0].user_id;
+        const hash = await bcrypt.hash(newPassword, 10)
+        await db.query("UPDATE users SET password = ? WHERE id = ?", [hash, userId])
+        await db.query("DELETE FROM password_resets WHERE user_id = ?", [userId])
+        res.json({
+            success: true,
+            message: "Password reset successful"
+        })
+    } catch(err){
+        console.error(err)
+        res.status(500).json({ success: false, 
+            message: "Internal Server Error"
+        })
     }
 })
 
