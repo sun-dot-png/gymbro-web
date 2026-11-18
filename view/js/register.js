@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault()
 
             const username = document.getElementById("username").value
+            const email = document.getElementById("email").value
             const password = document.getElementById("password").value
             const confirmPassword = document.getElementById("Cpassword").value
 
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     username,
+                    email,
                     password,
                     confirmPassword
                 })
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(data.message)
                 window.location.href = "login.html";
             } else {
-                alert(data.massage || "Register failed")
+                alert(data.message || "Register failed")
             }
         } catch(err){
             console.error("Connection error:", err)

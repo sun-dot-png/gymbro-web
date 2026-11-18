@@ -162,14 +162,279 @@ body.bg-body-dark {
 }
 
 .logout-btn {
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-weight: 600;
-  transform: 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .logout-btn:hover{
   box-shadow: 0 0 12px rgba(181, 255, 78, 0.12)
+}
+
+.profile-info {
+    border: 1px solid rgba(181, 255, 78, 0.2);
+    border-radius: 16px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(181, 255, 78, 0.15);
+    border: 2px solid var(--color-lime);
+
+    color: var(--color-lime);
+    font-size: 40px;
+}
+
+.profile-details h3 {
+    font-weight: bold;
+}
+
+.settings-card {
+    padding: 10px 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(181, 255, 78, 0.2);
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 0;
+}
+
+.settings-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(181, 255, 78, 0.1);
+    color: var(--color-lime);
+    font-size: 22px;
+}
+
+.settings-info {
+    flex: 1;
+}
+
+.settings-info h6 {
+    color: #FFFFFF;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.settings-info p {
+    color: #AAB2BA;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.settings-card hr {
+    border-color: #343C43;
+    opacity: 1;
+}
+
+.fitness-card {
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(181, 255, 78, 0.2);
+}
+
+.fitness-stat {
+    height: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(181, 255, 78, 0.06);
+    text-align: center;
+}
+
+.fitness-stat i {
+    font-size: 26px;
+    color: var(--color-lime);
+}
+
+.fitness-stat p {
+    color: #AAB2BA;
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+.fitness-stat h4 {
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.fitness-stat h4 span {
+    font-size: 14px;
+    font-weight: normal;
+    color: #AAB2BA;
+}
+
+.bmi-status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ECC71;
+    font-size: 12px;
+}
+
+
+/* Fitness Goal */
+.goal-card {
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(181, 255, 78, 0.2);
+}
+
+.goal-label {
+    color: #AAB2BA;
+    font-size: 14px;
+}
+
+.goal-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(181, 255, 78, 0.12);
+    color: var(--color-lime);
+    font-size: 25px;
+}
+
+.goal-description {
+    color: #AAB2BA;
+    font-size: 14px;
+}
+
+.goal-card hr {
+    border-color: #343C43;
+    opacity: 1;
+}
+
+.goal-progress {
+    height: 10px;
+    background: #343C43;
+    border-radius: 20px;
+}
+
+.goal-progress .progress-bar {
+    background: var(--color-lime);
+    border-radius: 20px;
+}
+
+.modal-backdrop.show {
+  opacity: 0.75;
+}
+
+.gym-modal {
+  background: #181c21;
+  color: #FFFFFF;
+  border: 1px solid rgba(181, 255, 78, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(181, 255, 78, 0.12);
+}
+
+.gym-modal .modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #343C43;
+}
+
+.gym-modal-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(181, 255, 78, 0.1);
+  color: var(--color-lime);
+  font-size: 22px;
+}
+
+.gym-modal .modal-title {
+  margin: 0;
+  color: var(--color-lime);
+  font-weight: 700;
+}
+
+.gym-modal-sub {
+  margin: 2px 0 0;
+  color: #AAB2BA;
+  font-size: 13px;
+}
+
+.gym-modal .modal-body {
+  padding: 24px;
+}
+
+.gym-field + .gym-field {
+  margin-top: 16px;
+}
+
+.gym-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.gym-modal .form-control {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: #121417;
+  border: 1px solid #343c43;
+  color: #FFFFFF;
+}
+
+.gym-modal .form-control::placeholder {
+  color: #777f87;
+}
+
+.gym-modal .form-control:focus {
+  background-color: #121417;
+  color: #FFFFFF;
+  border-color: var(--color-lime);
+  box-shadow: 0 0 8px rgba(181, 255, 78, 0.12);
+}
+
+.gym-hint {
+  margin-top: 6px;
+  color: #AAB2BA;
+  font-size: 12px;
+}
+
+.gym-modal .modal-footer {
+  padding: 16px 24px;
+  gap: 8px;
+  border-top: 1px solid #343C43;
+}
+
+.gym-modal .modal-footer .btn {
+  margin: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 body.light-mode .text-orange {
@@ -224,7 +489,7 @@ body.light-mode .btn-close-white {
   filter: none;
 }
 
-/* Light Mode - Login */
+
 body.light-mode .login-box {
     background: #FFFFFF;
     border: 1px solid #2E7D32;
@@ -263,12 +528,152 @@ body.light-mode .register-text span {
 }
 
 body.light-mode .logout-btn {
+    background-color: transparent;
+    border-color: #DC3545;
+    color: #DC3545;
+}
+
+body.light-mode .logout-btn:hover {
+    background-color: #DC3545;
+    color: #FFFFFF;
+}
+
+body.light-mode .profile-info {
+    background: #FFFFFF;
+    border-color: #DEE2E6;
+}
+
+body.light-mode .profile-avatar {
+    background: rgba(46, 125, 50, 0.1);
     border-color: #2E7D32;
     color: #2E7D32;
 }
 
-body.light-mode .logout-btn:hover {
-    background-color: #2E7D32;
-    color: #FFFFFF;
-    box-shadow: 0 0 12px rgba(46, 125, 50, 0.2);
+body.light-mode .profile-details h3 {
+    color: #2E7D32 !important;
 }
+
+
+body.light-mode .settings-card {
+    background: #FFFFFF;
+    border-color: #DEE2E6;
+}
+
+body.light-mode .settings-icon {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2E7D32;
+}
+
+body.light-mode .settings-info h6 {
+    color: #121417;
+}
+
+body.light-mode .settings-info p {
+    color: #6C757D;
+}
+
+body.light-mode .settings-card hr {
+    border-color: #DEE2E6;
+}
+
+
+body.light-mode .fitness-card,
+body.light-mode .goal-card {
+    background: #FFFFFF;
+    border-color: #DEE2E6;
+}
+
+body.light-mode .fitness-stat {
+    background: rgba(46, 125, 50, 0.06);
+}
+
+body.light-mode .fitness-stat i {
+    color: #2E7D32;
+}
+
+body.light-mode .fitness-stat h4 {
+    color: #121417;
+}
+
+body.light-mode .fitness-stat p,
+body.light-mode .fitness-stat h4 span {
+    color: #6C757D;
+}
+
+body.light-mode .goal-icon {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2E7D32;
+}
+
+body.light-mode .goal-description,
+body.light-mode .goal-label {
+    color: #6C757D;
+}
+
+body.light-mode .goal-card hr {
+    border-color: #DEE2E6;
+}
+
+body.light-mode .goal-progress {
+    background: #DEE2E6;
+}
+
+body.light-mode .goal-progress .progress-bar {
+    background: #2E7D32;
+}
+
+body.light-mode .gym-modal {
+  background: #FFFFFF;
+  color: #121417;
+  border-color: #2E7D32;
+  box-shadow: 0 0 25px rgba(46, 125, 50, 0.15);
+}
+
+body.light-mode .gym-modal .modal-header,
+body.light-mode .gym-modal .modal-footer {
+  border-color: #DEE2E6;
+}
+
+body.light-mode .gym-modal-icon {
+  background: rgba(46, 125, 50, 0.1);
+  color: #2E7D32;
+}
+
+body.light-mode .gym-modal .modal-title {
+  color: #2E7D32;
+}
+
+body.light-mode .gym-modal-sub,
+body.light-mode .gym-hint {
+  color: #6C757D;
+}
+
+body.light-mode .gym-label {
+  color: #121417;
+}
+
+body.light-mode .gym-modal .form-control {
+  background-color: #F4F6F8;
+  border-color: #DEE2E6;
+  color: #121417;
+}
+
+body.light-mode .gym-modal .form-control::placeholder {
+  color: #999999;
+}
+
+body.light-mode .gym-modal .form-control:focus {
+  background-color: #F4F6F8;
+  color: #121417;
+  border-color: #2E7D32;
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.2);
+}
+
+.bmi-status {
+    white-space: normal;
+}
+.bmi-underweight { background: rgba(52, 152, 219, 0.15); color: #3498DB; }
+.bmi-normal      { background: rgba(46, 204, 113, 0.15); color: #2ECC71; }
+.bmi-overweight  { background: rgba(255, 193, 7, 0.15);  color: #FFC107; }
+.bmi-obese1      { background: rgba(255, 107, 0, 0.15);  color: #FF6B00; }
+.bmi-obese2      { background: rgba(231, 76, 60, 0.15);  color: #E74C3C; }

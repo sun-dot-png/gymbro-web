@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBro - Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-body-dark text-light min-vh-100 d-flex flex-column justify-content-between">
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <a href="index.html" class="text-decoration-none">
+                <span class="text-secondary display-5 header"><strong>Gym</strong></span><span class="text-lime display-5 header"><strong>Bro</strong></span>
+            </a>
+        </div>
+        <button id="theme-toggle" class="btn btn-outline-lime rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;" title="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+        </button>
+    </div>
+
+    <main>
+        <section class="profile-info glass-card p-4 mb-4">
+            <div class="d-flex align-items-center gap-4">
+                <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-details">
+                    <h3 class="text-lime mb-1" id="profileUsername">Username</h3>
+                    <p class="text-secondary mb-2" id="profileEmail">user@example.com</p>
+                    <span class="badge bg-success">GymBro Member</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="account-settings mb-4">
+            <h4 class="text-lime mb-3"><i class="bi bi-gear"></i> Account Settings</h4>
+            <div class="glass-card settings-card">
+
+                <div class="settings-item">
+                    <div class="settings-icon"><i class="bi bi-person"></i></div>
+                    <div class="settings-info">
+                        <h6>Change Username</h6>
+                        <p>Update your account username</p>
+                    </div>
+                    <button class="btn btn-outline-lime btn-sm" id="editUsername">Edit</button>
+                </div>
+                <hr>
+                <div class="settings-item">
+                    <div class="settings-icon"><i class="bi bi-lock"></i></div>
+                    <div class="settings-info">
+                        <h6>Change Password</h6>
+                        <p>Keep your account secure</p>
+                    </div>
+                    <button class="btn btn-outline-lime btn-sm" id="editPassword">Edit</button>
+                </div>
+                <hr>
+                <div class="settings-item">
+                    <div class="settings-icon"><i class="bi bi-envelope"></i></div>
+                    <div class="settings-info">
+                        <h6>Change Email</h6>
+                        <p>Manage your email address</p>
+                    </div>
+                    <button class="btn btn-outline-lime btn-sm" id="editEmail">Edit</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="fitness-profile mb-4">
+            <h4 class="text-lime mb-3"><i class="bi bi-person-bounding-box"></i> Fitness Profile</h4>
+            <div class="glass-card fitness-card">
+                <div class="row g-3">
+    <div class="col-md-4">
+        <div class="fitness-stat">
+            <i class="bi bi-rulers"></i>
+            <p>Height</p>
+            <h4><span id="fitHeight">-</span> <span>cm</span></h4>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="fitness-stat">
+            <i class="bi bi-speedometer2"></i>
+            <p>Weight</p>
+            <h4><span id="fitWeight">-</span> <span>kg</span></h4>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="fitness-stat">
+            <i class="bi bi-calculator"></i>
+            <p>BMI</p>
+            <h4 id="fitBmi">-</h4>
+            <span class="bmi-status" id="fitBmiStatus">No data</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <section class="fitness-goal mb-4">
+            <h4 class="text-lime mb-3"><i class="bi bi-bullseye"></i> Fitness Goal</h4>
+            <div class="glass-card goal-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <p class="goal-label mb-1">Current Goal</p>
+                        <h4 class="text-lime mb-0" id="goalLabel">Not set</h4>
+                    </div>
+                    <div class="goal-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                </div>
+                <hr>
+                <div class="text-end mt-3">
+                    <button class="btn btn-outline-lime btn-sm" id="editGoal">
+                        <i class="bi bi-pencil"></i> Edit Goal
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="index.html" class="btn btn-outline-lime px-4">
+                ← Back to Home
+            </a>
+            <button id="logout-btn" class="btn btn-outline-danger logout-btn">
+                <i class="bi bi-box-arrow-right"></i>
+                Logout
+            </button>
+        </div>
+        
+    </main>
+</div>
+
+
+<div class="modal fade" id="usernameModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content gym-modal" id="usernameForm">
+      <div class="modal-header">
+        <div class="gym-modal-icon"><i class="bi bi-person"></i></div>
+        <div>
+          <h5 class="modal-title">Change Username</h5>
+          <p class="gym-modal-sub">Pick a new name for your account</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="gym-field">
+          <label for="newUsername" class="gym-label">New username</label>
+          <input type="text" class="form-control" id="newUsername" placeholder="Enter new username" minlength="3" maxlength="30" required>
+          <div class="gym-hint">3-30 characters</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-lime">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="passwordModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content gym-modal" id="passwordForm">
+      <div class="modal-header">
+        <div class="gym-modal-icon"><i class="bi bi-lock"></i></div>
+        <div>
+          <h5 class="modal-title">Change Password</h5>
+          <p class="gym-modal-sub">Keep your account secure</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="gym-field">
+          <label for="currentPassword" class="gym-label">Current password</label>
+          <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password" required>
+        </div>
+        <div class="gym-field">
+          <label for="newPassword" class="gym-label">New password</label>
+          <input type="password" class="form-control" id="newPassword" placeholder="Enter new password" minlength="8" required>
+          <div class="gym-hint">At least 8 characters</div>
+        </div>
+        <div class="gym-field">
+          <label for="confirmNewPassword" class="gym-label">Confirm new password</label>
+          <input type="password" class="form-control" id="confirmNewPassword" placeholder="Re-enter new password" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-lime">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="emailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content gym-modal" id="emailForm">
+      <div class="modal-header">
+        <div class="gym-modal-icon"><i class="bi bi-envelope"></i></div>
+        <div>
+          <h5 class="modal-title">Change Email</h5>
+          <p class="gym-modal-sub">Manage your email address</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="gym-field">
+          <label for="newEmail" class="gym-label">New email</label>
+          <input type="email" class="form-control" id="newEmail" placeholder="name@example.com" required>
+        </div>
+        <div class="gym-field">
+          <label for="emailPassword" class="gym-label">Current password</label>
+          <input type="password" class="form-control" id="emailPassword" placeholder="Confirm with your password" required>
+          <div class="gym-hint">We ask for your password to confirm it's you</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-lime">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="goalModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content gym-modal" id="goalForm">
+      <div class="modal-header">
+        <div class="gym-modal-icon"><i class="bi bi-bullseye"></i></div>
+        <div>
+          <h5 class="modal-title">Edit Goal</h5>
+          <p class="gym-modal-sub">What are you training for?</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="gym-field">
+          <label for="newGoal" class="gym-label">Your goal</label>
+          <input type="text" class="form-control" id="newGoal" placeholder="e.g. Build Muscle" maxlength="50" required>
+          <div class="gym-hint">Up to 50 characters</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-lime">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/checkLogin.js"></script>
+<script src="./js/profile.js"></script>
+<script src="./js/logout.js"></script>
+</body>
+</html>
