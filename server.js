@@ -37,7 +37,8 @@ const requireAuth = (req, res, next) =>
         success: false,
         message: "Not logged in"
     })
-
+    
+app.set('trust proxy', 1)
 app.use(express.json())
 app.use(cors())
 app.use(express.static(path.join(__dirname, "view")));
@@ -54,7 +55,6 @@ app.use(
     }
   })
 );
-app.set('trust proxy', 1)
 
 const pool = mysql2.createPool({
   host: process.env.DB_HOST || "localhost",
@@ -65,7 +65,10 @@ const pool = mysql2.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  charset: "utf8mb4"
+  charset: "utf8mb4",
+  ssl: process.env.DB_SSL === "true"
+  ?{minVersion: "TLSv1.2", rejectUnauthorized: true}
+  :undefined
 });
 
 const db = pool.promise()
